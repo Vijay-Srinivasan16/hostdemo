@@ -6,11 +6,14 @@ const routes: Routes = [
   {
     path: '',
     component: ListComponent,
+    children: [
+      {
+        path: 'gymnastics',
+        loadChildren: () => import('./gymnastics/gymnastics.module').then(m => m.GymnasticsModule)
+      }
+    ]
   },
-  {
-    path: 'gymnastics',
-    loadChildren: () => import('./gymnastics/gymnastics.module').then(m => m.GymnasticsModule)
-  }
+  
 ];
 
 @NgModule({
